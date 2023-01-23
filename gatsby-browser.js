@@ -1,7 +1,24 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
- */
+import React from "react"
+import RootElement from "./src/components/RootElement"
 
-// You can delete this file if you're not using it
+export const onRouteUpdate = ({ prevLocation }) => {
+  const isFirstPage = prevLocation === null
+  let fireGtm = true
+  if (isFirstPage) {
+    fireGtm = false
+  }
+  if (fireGtm) {
+    // wrap inside a timeout to ensure the title has properly been changed
+    setTimeout(() => {
+      window.dataLayer = window.dataLayer || []
+      const data = window.dataLayer
+      const eventName = `gatsby-route-change`
+      data.push({ event: eventName })
+      console.log("HELLLLLO", data)
+    }, 50)
+  }
+}
+
+export const wrapRootElement = ({ element }) => {
+  return <RootElement>{element}</RootElement>
+}

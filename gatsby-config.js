@@ -40,4 +40,8 @@ module.exports = {
       },
     },
   ],
+  partytownProxiedURLs: [
+    "https://www.googletagmanager.com/gtm.js?id=GTM-TC9492N",
+    "https://www.google-analytics.com/analytics.js",
+  ],
 }
