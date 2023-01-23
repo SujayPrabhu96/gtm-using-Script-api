@@ -1,5 +1,5 @@
 import React from "react"
-import RootElement from "./src/components/RootElement"
+import { RootElement } from "./src/components/RootElement"
 
 export const onRouteUpdate = ({ prevLocation }) => {
   const isFirstPage = prevLocation === null
